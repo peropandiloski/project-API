@@ -28,7 +28,7 @@ module.exports = {
     try {
       const blogPost = await BlogPost.create(req.body);
       if (blogPost) {
-        mailSend();
+        mailSend(req.user.email);
       }
       successResponse(res, 'New blog post created', blogPost);
     } catch (error) {
